@@ -7,7 +7,10 @@
     "build": "webpack --mode production",
     "start": "node server.js",
     "webpack": "webpack",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "test": "jest -u --coverage",
+    "test:coverage": "jest --coverage --colors && cat ./coverage/lcov.info ",
+    "test:watch": "jest -u --coverage --watch"
   },
   "repository": {
     "type": "git",
@@ -40,7 +43,6 @@
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.85.0",
-    "webpack": "^4.29.6",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
   },
