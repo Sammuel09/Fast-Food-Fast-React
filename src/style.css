@@ -1,0 +1,140 @@
+body,
+html {
+  background-color: #528ef5;
+  height: 100%;
+  margin: 0;
+}
+#body {
+  height: 900px;
+  width: 100%;
+  background-image: url(https://res.cloudinary.com/store-manager/image/upload/v1550859479/fancycrave-284219-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+/* #index {
+  height: 100%;
+  background-image: url(https://res.cloudinary.com/store-manager/image/upload/v1550859479/fancycrave-284219-unsplash.jpg);
+} */
+
+.container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.margin {
+  margin: 50px;
+  padding: 10px;
+}
+
+#button-primary {
+  color: white;
+  background-color: rgb(88, 158, 158);
+  text-align: center;
+}
+
+.login-container {
+  vertical-align: center;
+  background-color: white;
+  margin-top: 10%;
+  height: 80%;
+  width: 250px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+}
+/* .meun {
+  margin: 0px !important;
+} */
+
+/* .ui.menu {
+  margin: 0;
+} */
+
+.link {
+  display: flex;
+  justify-content: center;
+}
+
+.labeled {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.horizontal {
+  margin-top: 50px;
+}
+.centered {
+  margin: 20px;
+}
+
+.display_flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.white_color {
+  color: white;
+  text-align: center;
+}
+
+.vertical_align {
+  margin-top: 20%;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.breadcrumb {
+  height: 40px;
+  position: fixed;
+  right: 0;
+}
+
+.align-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+#new-attendant-width {
+  width: 350px;
+}
+
+@media only screen and (max-width: 600px) {
+  .hide-menu {
+    display: none;
+  }
+  .hamburger {
+    display: block !important;
+  }
+
+  #margin-top {
+    margin-top: 25%;
+  }
+}
+.vertical-align {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.margin-top {
+  margin-top: 5%;
+}
+
+.hamburger {
+  display: none;
+}
+
+.ui.dropdown .menu {
+  left: -70px;
+}
