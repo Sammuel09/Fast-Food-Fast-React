@@ -1,0 +1,21 @@
+.banner {
+  float: left;
+  background: url(../public/fastfood.jpeg) no-repeat scroll center center /
+    cover;
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  display: table;
+}
+
+.headline-text {
+  margin-top: 20%;
+  color: #ffffff;
+  font-size: 33px;
+  font-family: 'Overpass' sans-serif !important;
+  text-align: center;
+}
+
+.ui .button {
+  background-color: header-bg !important;
+}

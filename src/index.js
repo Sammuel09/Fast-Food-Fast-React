@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReduxToastr from 'react-redux-toastr';
-import './style.css';
-import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
+import './styles/global.scss';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { Provider } from 'react-redux';
