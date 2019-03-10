@@ -5,6 +5,7 @@ import NotFoundPage from './Components/View/Notfound/Notfound';
 import LandingPage from './Components/View/LandingPage/LandingPage';
 import SignUpPage from './Components/Container/SignupPage/SignupPage';
 import LoginPage from './Components/Container/LoginPage/LoginPage';
+import Menu from './Components/Container/Menu/Menu';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/menu" component={Menu} />
             <Route component={NotFoundPage} />
           </Switch>
         </>

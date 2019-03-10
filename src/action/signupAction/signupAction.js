@@ -55,12 +55,6 @@ export const signUpUser = (userData, history) => async dispatch => {
     dispatch(signupSucess(response));
     history.push('/menu');
   } catch (error) {
-    // const errorObject = JSON.parse(JSON.stringify(error));
-    // const { response } = errorObject;
-    // if (error) {
-    //   dispatch(signUpFailure(error));
-    //   return;
-    // }
     dispatch(signUpFailure(error));
   }
 };
