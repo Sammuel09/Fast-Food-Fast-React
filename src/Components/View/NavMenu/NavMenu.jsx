@@ -14,14 +14,20 @@ const NavMenu = () => {
               </li>
               <li className="Btn">
                 <Link to="/login">
-                  <Button className="btn" primary compact active mini>
+                  <Button
+                    style={{ color: '#c5515a' }}
+                    className="btn"
+                    compact
+                    active
+                    mini
+                  >
                     Login
                   </Button>
                 </Link>
               </li>
               <li className="Btn">
                 <Link to="/signup">
-                  <Button compact mini>
+                  <Button style={{ color: '#c5515a' }} compact mini>
                     SignUp
                   </Button>
                 </Link>

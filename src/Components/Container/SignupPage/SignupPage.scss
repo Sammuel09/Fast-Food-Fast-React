@@ -14,7 +14,12 @@ label {
 .login-text {
   padding: 10px 10px !important;
 
-  & > p {
+  & > div > p {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  & > div > p > p {
     text-align: center;
     font-size: 18px;
   }
