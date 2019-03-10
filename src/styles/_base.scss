@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Overpass';
+}
+
+// semantic overides
+.ui.active.button {
+  background-color: none !important;
+}
+
+// .ui.button {
+//   background-color: none !important;
+// }
+
+.ui.dropdown .menu {
+  left: -70px !important;
+  background: header-bg !important;
+}

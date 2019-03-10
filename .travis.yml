@@ -2,7 +2,7 @@ sudo: required
 language: node_js
 
 node_js:
-  - 'stable'
+  - '11.10.1'
 
 cache:
   directories:
@@ -11,6 +11,7 @@ cache:
 env:
   - global:
       - NODE_ENV = test
+      - CC_TEST_REPORTER_ID=ac2495bb80f284f5caab246c444560865bae98b587607669351352c51d457fd2
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter

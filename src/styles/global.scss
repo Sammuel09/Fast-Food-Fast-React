@@ -1,0 +1,7 @@
+@import 'base';
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+@import 'components';
