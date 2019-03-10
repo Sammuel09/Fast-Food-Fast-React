@@ -12,8 +12,8 @@ const makeRequest = (url, options = { method: 'GET' }) => {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json',
-      Authorization: localStorage.getItem('userToken')
-        ? `Bearer ${localStorage.getItem('userToken')}`
+      'x-access-token': localStorage.getItem('userToken')
+        ? localStorage.getItem('userToken')
         : ''
     }
   }).then(response => response.data);

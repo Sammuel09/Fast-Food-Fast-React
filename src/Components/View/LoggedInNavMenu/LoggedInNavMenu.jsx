@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Container,
   Image,
@@ -6,9 +6,10 @@ import {
   Button,
   Dropdown,
   Icon
-} from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import manageUserData from '../../../utils/auth/authentication';
+} from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import manageUserData from "../../../utils/auth/authentication";
+import ProfileDropdown from "../../Container/ProfileDropdown/ProfileDropdown";
 
 const NavMenu = () => {
   const username = manageUserData.getUsername();
@@ -22,22 +23,29 @@ const NavMenu = () => {
                 <a href="/">Fast Food Fast</a>
               </li>
               <li className="Btn">
-                <Link to="/login">
-                  <p>Welcome, {username}</p>
-                </Link>
+                <p>
+                  Welcome,
+                  {username}
+                </p>
               </li>
               <li className="Btn">
-                <Link to="/profile">
-                  <Icon name="user circle outline" size="large" />
-                </Link>
+                <div className="dropdown">
+                  <Icon
+                    className="icon"
+                    name="user circle outline"
+                    size="large"
+                  />
+                  <ProfileDropdown />
+                </div>
               </li>
               <div className="hamburger">
                 <Dropdown item icon="bars">
                   <Dropdown.Menu>
-                    <Dropdown.Item text={<Link to="/search">Login</Link>} />
                     <Dropdown.Item
-                      text={<Link to="/articles/new">Sign Up</Link>}
+                      text={<a href="/profile">Profile</a>}
+                      style={{ color: "black" }}
                     />
+                    <Dropdown.Item text={<Link to="/">Logout</Link>} />
                   </Dropdown.Menu>
                 </Dropdown>
               </div>

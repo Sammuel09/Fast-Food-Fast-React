@@ -47,6 +47,21 @@ header a {
 
 .Btn {
   margin-top: 6px;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 @media only screen and (max-width: 768px) {
@@ -75,5 +90,8 @@ header a {
     position: absolute;
     right: 15px;
     cursor: pointer;
+  }
+  .hamburger a {
+    color: black;
   }
 }
