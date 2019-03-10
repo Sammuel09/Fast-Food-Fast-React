@@ -46,11 +46,9 @@ class SignupPage extends Component {
         hasValidationError: true,
         errors
       });
-      console.log(errors);
       return;
     }
     signUpUser(userData, history);
-    console.log('event');
   };
 
   render() {
@@ -63,8 +61,9 @@ class SignupPage extends Component {
       errors,
       hasValidationError
     } = this.state;
+
     const { signUpError, hasSignUpError, isLoading } = this.props;
-    console.log(hasSignUpError, '....', signUpError);
+
     return (
       <div>
         <NavMenu />
