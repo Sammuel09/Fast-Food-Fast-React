@@ -45,6 +45,10 @@ header a {
   display: none;
 }
 
+.btn {
+  color: #c5515a;
+}
+
 @media only screen and (max-width: 768px) {
   .header-bar {
     background: #c5515a;
@@ -59,11 +63,15 @@ header a {
     display: none;
   }
 
+  .nav-menu li:first-child {
+    margin-right: auto !important;
+    margin-top: 6px;
+  }
+
   .nav-menu .hamburger {
     display: block;
     margin-right: auto !important;
     margin-top: 6px;
-    // align-self: flex-end;
     position: absolute;
     right: 15px;
     cursor: pointer;

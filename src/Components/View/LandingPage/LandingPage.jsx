@@ -49,9 +49,7 @@ const LandingPage = () => {
             <p>Tasty Yummy Foods</p>
             <p>Delivered to your doorsteps</p>
             <Link to="/signup">
-              <Button color="blue" className="btn">
-                Get Started
-              </Button>
+              <Button style={{ color: '#c5515a' }}>Get Started</Button>
             </Link>
           </div>
         </section>
