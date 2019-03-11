@@ -83,7 +83,7 @@ class MenuCard extends Component {
                       className="message"
                       positive
                       onDismiss={this.handleDismiss}
-                      content="Your order has been taken successfully"
+                      content="Your order has been taken successfully. You will be redirected to your order history shortly."
                     />
                   </Container>
                 ) : null}
