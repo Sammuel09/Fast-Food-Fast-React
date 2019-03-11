@@ -1,10 +1,10 @@
-import * as signUpAction from '../../action/signupAction/signupAction';
+import * as signUpAction from "../../action/signupAction/signupAction";
 
 const INITIAL_STATE = {
   isLoading: false,
   isAuthenticated: false,
   hasSignUpError: false,
-  signUpError: '',
+  signUpError: "",
   message: null,
   data: {}
 };

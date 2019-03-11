@@ -1,10 +1,10 @@
-import makeRequest from '../../utils/setupAxios';
-import manageUsertoken from '../../utils/auth/authentication';
+import makeRequest from "../../utils/setupAxios";
+import manageUserData from "../../utils/auth/authentication";
 
-export const SIGNUP_LOADING = 'SIGNUP_LOADING';
-export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
-export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
-export const CLEAR_FLASH_MESSAGE = 'CLEAR_FLASH_MESSAGE';
+export const SIGNUP_LOADING = "SIGNUP_LOADING";
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_FAILURE = "SIGNUP_FAILURE";
+export const CLEAR_FLASH_MESSAGE = "CLEAR_FLASH_MESSAGE";
 
 // ACTION CREATORS
 export const signupLoading = () => {
@@ -41,19 +41,21 @@ export const signUpFailure = error => {
 
 export const clearFlashMessage = () => ({
   type: CLEAR_FLASH_MESSAGE,
-  payload: { signUpError: '' }
+  payload: { signUpError: "" }
 });
 
 export const signUpUser = (userData, history) => async dispatch => {
   dispatch(signupLoading());
   try {
-    const response = await makeRequest('/auth/signup', {
-      method: 'POST',
+    const response = await makeRequest("/auth/signup", {
+      method: "POST",
       body: userData
     });
-    manageUsertoken.saveUserToken(response.token);
+    manageUserData.saveUserToken(response.token);
+    manageUserData.saveUsername(response.data.username);
+    manageUserData.saveUserId(response.data.user_id);
     dispatch(signupSucess(response));
-    history.push('/menu');
+    history.push("/menu");
   } catch (error) {
     dispatch(signUpFailure(error));
   }

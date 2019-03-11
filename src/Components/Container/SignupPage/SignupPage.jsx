@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Image, Form, Button, Message } from 'semantic-ui-react';
-import NavMenu from '../../View/NavMenu/NavMenu';
-import { Link } from 'react-router-dom';
-import { validateSignUpInput } from '../../../utils/validation/signup';
-import * as signupAction from '../../../action/signupAction/signupAction';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Container, Image, Form, Button, Message } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import NavMenu from "../../View/NavMenu/NavMenu";
+import { validateSignUpInput } from "../../../utils/validation/signup";
+import * as signupAction from "../../../action/signupAction/signupAction";
 
 class SignupPage extends Component {
   constructor(props) {
@@ -12,11 +12,11 @@ class SignupPage extends Component {
     this.state = {
       hasValidationError: false,
       errors: [],
-      username: '',
-      email: '',
-      phone: '',
-      address: '',
-      password: ''
+      username: "",
+      email: "",
+      phone: "",
+      address: "",
+      password: ""
     };
   }
 
@@ -166,7 +166,7 @@ class SignupPage extends Component {
 
               <div className="login-text">
                 <p>
-                  Already have an account?{' '}
+                  Already have an account?{" "}
                   <Link to="/login">
                     <p>Login</p>
                   </Link>
