@@ -20,6 +20,7 @@ class Menu extends Component {
 
   render() {
     const { isLoading, data } = this.props;
+    console.log(this.props);
     return (
       <>
         <LoggedInNavMenu />

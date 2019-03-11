@@ -52,7 +52,9 @@ export const postOrder = (orderData, history) => async dispatch => {
       body: orderData
     });
     dispatch(postOrderSuccess(response));
-    setTimeout(history.push("/history"), 2000);
+    setTimeout(() => {
+      history.push("/history");
+    }, 3200);
   } catch (error) {
     dispatch(postOrderFailure(error));
   }

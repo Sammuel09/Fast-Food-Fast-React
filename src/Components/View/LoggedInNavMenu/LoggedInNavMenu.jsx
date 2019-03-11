@@ -15,7 +15,7 @@ import { logout } from "../../../action/authActions/authActions";
 
 const NavMenu = props => {
   const username = manageUserData.getUsername();
-  const { history, logOutUser } = props;
+  const { history, logOutUser, location } = props;
 
   const handleLogout = e => {
     e.preventDefault();
@@ -34,13 +34,16 @@ const NavMenu = props => {
                   Fast Food Fast
                 </a>
               </li>
+              {location.pathname === "/history" && (
+                <li className="Btn">
+                  <Link to="/menu">Menu</Link>
+                </li>
+              )}
               <li className="Btn">
-                {
-                  <p>
-                    Welcome,
-                    {username}
-                  </p>
-                }
+                <p>
+                  Welcome,
+                  {username}
+                </p>
               </li>
               <li className="Btn">
                 <div className="dropdown">
