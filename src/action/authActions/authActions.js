@@ -5,6 +5,14 @@ export const USER_LOGIN_LOADING = "USER_LOGIN_LOADING";
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
 export const USER_LOGIN_FAILURE = "USER_LOGIN_FAILURE";
 export const CLEAR_FLASH_MESSAGE = "CLEAR_FLASH_MESSAGE";
+export const USER_LOGOUT = "LOGOUT";
+
+export const logout = () => {
+  manageUserData.removeUserId();
+  manageUserData.removeUserToken();
+  manageUserData.removeUsername();
+  return { type: USER_LOGOUT, payload: {} };
+};
 
 export const loginLoading = () => {
   return {
