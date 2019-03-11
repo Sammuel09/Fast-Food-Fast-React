@@ -44,7 +44,6 @@ class MenuCard extends Component {
     const qty = parseInt(quantity, 10);
     const { menu_id, postOrder } = this.props;
     const orderData = { quantity: qty, instruction, userId, menuId: menu_id };
-    console.log(orderData);
     // if (errors.length >= 1) {
     //   this.setState({
     //     hasValidationError: true,
@@ -72,12 +71,7 @@ class MenuCard extends Component {
     return (
       <div className="menu-card">
         <Card>
-          <Image
-            src={
-              imageurl ||
-              "https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
-            }
-          />
+          <Image src="https://www.skinnytaste.com/wp-content/uploads/2012/10/Kale-and-Potato-Soup-with-Turkey-Sausage-4.jpg" />
           <Card.Content>
             <Card.Header>{name}</Card.Header>
             <Card.Meta>

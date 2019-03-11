@@ -3,19 +3,22 @@ import { connect } from "react-redux";
 import { Card, Image, Container, Grid } from "semantic-ui-react";
 import LoggedInNavMenu from "../../View/LoggedInNavMenu/LoggedInNavMenu";
 import Footer from "../../View/Footer/Footer";
-import MenuCard from "../../View/MenuCard/MenuCard";
-import MenuCardLoader from "../../View/MenuCardLoader/MenuCardLoader";
-import * as menuAction from "../../../action/menu/menuAction";
+import OrderCard from "../../View/OrderCard/OrderCard";
+import OrderCardLoader from "../../View/OrderCardLoader/OrderCardLoader";
+import * as orderAction from "../../../action/orders/orderActions";
+import manageUserData from "../../../utils/auth/authentication";
 
-class Menu extends Component {
+class OrderHistory extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   async componentDidMount() {
-    const { fetchMenu } = this.props;
-    await fetchMenu();
+    const userid = manageUserData.getUserId();
+    const userId = parseInt(userid, 10);
+    const { fetchUserOrderHistory } = this.props;
+    await fetchUserOrderHistory(userId);
   }
 
   render() {
@@ -29,16 +32,16 @@ class Menu extends Component {
               <Grid doubling columns={4}>
                 <Grid.Row stretched>
                   <Grid.Column>
-                    <MenuCardLoader />
+                    <OrderCardLoader />
                   </Grid.Column>
                   <Grid.Column>
-                    <MenuCardLoader />
+                    <OrderCardLoader />
                   </Grid.Column>
                   <Grid.Column>
-                    <MenuCardLoader />
+                    <OrderCardLoader />
                   </Grid.Column>
                   <Grid.Column>
-                    <MenuCardLoader />
+                    <OrderCardLoader />
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
@@ -46,49 +49,39 @@ class Menu extends Component {
               <Grid stackable doubling columns={4}>
                 <Grid.Row stretched>
                   <Grid.Column>
-                    <MenuCardLoader />
+                    <OrderCardLoader />
                   </Grid.Column>
                   <Grid.Column>
-                    <MenuCardLoader />
+                    <OrderCardLoader />
                   </Grid.Column>
                   <Grid.Column>
-                    <MenuCardLoader />
+                    <OrderCardLoader />
                   </Grid.Column>
                   <Grid.Column>
-                    <MenuCardLoader />
+                    <OrderCardLoader />
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
             </section>
           ) : (
             <section>
-              <div className="call-to-action">
-                <p>Order delicious food online!</p>
+              <div className="call-to-action-h">
+                <p>View your order history</p>
               </div>
               <Grid stackable doubling columns={4}>
                 <Grid.Row stretched>
-                  {data.slice(0, 4).map(menu => (
+                  {data.map(order => (
                     <Grid.Column>
-                      <MenuCard
-                        key={menu.menu_id}
-                        menu_id={menu.menu_id}
-                        name={menu.name}
-                        price={menu.price}
-                        imageurl={menu.imageurl}
-                      />
-                    </Grid.Column>
-                  ))}
-                </Grid.Row>
-
-                <Grid.Row stretched>
-                  {data.slice(0, 4).map(menu => (
-                    <Grid.Column>
-                      <MenuCard
-                        key={menu.menu_id}
-                        menu_id={menu.menu_id}
-                        name={menu.name}
-                        price={menu.price}
-                        imageurl={menu.imageurl}
+                      <OrderCard
+                        name={order.name}
+                        price={order.price}
+                        quantity={order.quantity}
+                        deliveryinstruction={order.deliveryinstruction}
+                        orderdate={`${new Date(
+                          order.orderdate
+                        ).toDateString()} ${new Date(
+                          order.orderdate
+                        ).toLocaleTimeString("en-US")}`}
                       />
                     </Grid.Column>
                   ))}
@@ -105,21 +98,21 @@ class Menu extends Component {
 
 const mapStateToProps = state => {
   const {
-    menuReducer: { isLoading, menuError, data, message }
+    orderHistoryReducer: { isLoading, orderHistoryError, data, message }
   } = state;
   return {
     isLoading,
-    menuError,
+    orderHistoryError,
     data,
     message
   };
 };
 
 const mapDispatchToProps = {
-  fetchMenu: menuAction.fetchMenu
+  fetchUserOrderHistory: orderAction.fetchUserOrderHistory
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Menu);
+)(OrderHistory);

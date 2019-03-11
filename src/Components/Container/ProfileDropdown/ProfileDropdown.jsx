@@ -1,22 +1,25 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import authentication from '../../../utils/auth/authentication';
-import decodeToken from '../../../utils/auth/jwtDecode';
-import { logout } from '../../../action/authActions/authActions';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import authentication from "../../../utils/auth/authentication";
+import decodeToken from "../../../utils/auth/jwtDecode";
+import { logout } from "../../../action/authActions/authActions";
 
-const ProfileDropdown = () => {
-  // const handleLogout = e => {
-  //   e.preventDefault();
-  //   logOutUser();
-  //   history.push('/');
-  // };
+const ProfileDropdown = props => {
+  const { history, logOutUser } = props;
+  const handleLogout = e => {
+    e.preventDefault();
+    logOutUser();
+    history.push("/");
+  };
 
   return (
     <div className="dropdown-content">
-      <a href="/profile">Profile</a>
-      <a href="#">Logout</a>
+      <a href="/history">History</a>
+      <a onClick={handleLogout} href="#">
+        Logout
+      </a>
     </div>
 
     // <ul
@@ -44,13 +47,11 @@ const ProfileDropdown = () => {
 //   logOutUser: PropTypes.func.isRequired
 // };
 
-// const mapDispatchToProps = {
-//   logOutUser: logout
-// };
+const mapDispatchToProps = {
+  logOutUser: logout
+};
 
-// export default connect(
-//   null,
-//   mapDispatchToProps
-// )(withRouter(ProfileDropdown));
-
-export default ProfileDropdown;
+export default connect(
+  null,
+  mapDispatchToProps
+)(withRouter(ProfileDropdown));

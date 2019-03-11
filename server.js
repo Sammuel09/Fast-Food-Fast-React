@@ -1,12 +1,13 @@
-const express = require('express');
-const path = require('path');
-const log = require('fancy-log');
+const express = require("express");
+const path = require("path");
+const log = require("fancy-log");
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3110;
 
-app.use(express.static(path.join(__dirname, '/dist')));
-app.get('/*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/dist/index.html'))
+app.use(express.static(path.join(__dirname, "/dist")));
+app.get("/*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/dist/index.html"))
 );
-app.listen(port, () => log('Server Started'));
+app.listen(port, () => log("Server Started"));

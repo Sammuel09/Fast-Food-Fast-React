@@ -1,20 +1,20 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const apiInstance = axios.create({
-  baseURL: 'http://sammie-fast-food-fast.herokuapp.com/api/v1'
+  baseURL: "https://sammie-fast-food-fast.herokuapp.com/api/v1"
 });
 
-const makeRequest = (url, options = { method: 'GET' }) => {
+const makeRequest = (url, options = { method: "GET" }) => {
   return apiInstance({
     url,
     method: options.method,
     data: options.body,
     headers: {
-      Accept: 'application/json',
-      'Content-type': 'application/json',
-      'x-access-token': localStorage.getItem('userToken')
-        ? localStorage.getItem('userToken')
-        : ''
+      Accept: "application/json",
+      "Content-type": "application/json",
+      "x-access-token": localStorage.getItem("userToken")
+        ? localStorage.getItem("userToken")
+        : ""
     }
   }).then(response => response.data);
 };

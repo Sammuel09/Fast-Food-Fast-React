@@ -28,6 +28,8 @@ export default (state = initialAuthState, action) => {
       };
     case authAction.CLEAR_FLASH_MESSAGE:
       return { ...state, ...action.payload };
+    case authAction.USER_LOGOUT:
+      return { ...state, isAuthenticated: false };
     default:
       return state;
   }

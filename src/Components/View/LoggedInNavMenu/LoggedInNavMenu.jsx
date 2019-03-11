@@ -7,12 +7,22 @@ import {
   Dropdown,
   Icon
 } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import manageUserData from "../../../utils/auth/authentication";
 import ProfileDropdown from "../../Container/ProfileDropdown/ProfileDropdown";
+import { logout } from "../../../action/authActions/authActions";
 
-const NavMenu = () => {
+const NavMenu = props => {
   const username = manageUserData.getUsername();
+  const { history, logOutUser } = props;
+
+  const handleLogout = e => {
+    e.preventDefault();
+    logOutUser();
+    history.push("/");
+  };
+
   return (
     <div className="header-bar">
       <header>
@@ -42,10 +52,16 @@ const NavMenu = () => {
                 <Dropdown item icon="bars">
                   <Dropdown.Menu>
                     <Dropdown.Item
-                      text={<a href="/profile">Profile</a>}
+                      text={<a href="/history">History</a>}
                       style={{ color: "black" }}
                     />
-                    <Dropdown.Item text={<Link to="/">Logout</Link>} />
+                    <Dropdown.Item
+                      text={(
+<Link onClick={handleLogout} to="/logout">
+                          Logout
+</Link>
+)}
+                    />
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
@@ -57,4 +73,11 @@ const NavMenu = () => {
   );
 };
 
-export default NavMenu;
+const mapDispatchToProps = {
+  logOutUser: logout
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(withRouter(NavMenu));
