@@ -71,7 +71,7 @@ class OrderHistory extends Component {
               <Grid stackable doubling columns={4}>
                 <Grid.Row stretched>
                   {data.map(order => (
-                    <Grid.Column>
+                    <Grid.Column className="grid-col">
                       <OrderCard
                         name={order.name}
                         price={order.price}

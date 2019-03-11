@@ -12,6 +12,7 @@ import {
 } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import manageUserData from "../../../utils/auth/authentication";
 import * as orderAction from "../../../action/orders/orderActions";
 
@@ -42,16 +43,9 @@ class MenuCard extends Component {
     const userId = parseInt(userid, 10);
     const { quantity, instruction } = this.state;
     const qty = parseInt(quantity, 10);
-    const { menu_id, postOrder } = this.props;
+    const { menu_id, postOrder, history } = this.props;
     const orderData = { quantity: qty, instruction, userId, menuId: menu_id };
-    // if (errors.length >= 1) {
-    //   this.setState({
-    //     hasValidationError: true,
-    //     errors
-    //   });
-    //   return;
-    // }
-    postOrder(orderData);
+    postOrder(orderData, history);
   };
 
   render() {
@@ -205,4 +199,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MenuCard);
+)(withRouter(MenuCard));

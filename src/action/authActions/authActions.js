@@ -1,5 +1,6 @@
 import makeRequest from "../../utils/setupAxios";
 import manageUserData from "../../utils/auth/authentication";
+import isValidToken from "../../utils/auth/jwtDecode";
 
 export const USER_LOGIN_LOADING = "USER_LOGIN_LOADING";
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
@@ -62,7 +63,13 @@ export const loginUser = (userData, history) => async dispatch => {
     manageUserData.saveUsername(response.data.username);
     manageUserData.saveUserId(response.data.user_id);
     dispatch(loginSucess(response));
-    history.push("/menu");
+    const decodedToken = isValidToken(response.token);
+    const { isAdmin } = decodedToken;
+    if (isAdmin === 0) {
+      history.push("/menu");
+    } else {
+      history.push("/admin");
+    }
   } catch (error) {
     dispatch(loginFailure(error));
   }
