@@ -30,13 +30,17 @@ const NavMenu = props => {
           <nav>
             <ul className="nav-menu">
               <li>
-                <a href="/">Fast Food Fast</a>
+                <a className="logo" href="/">
+                  Fast Food Fast
+                </a>
               </li>
               <li className="Btn">
-                <p>
-                  Welcome,
-                  {username}
-                </p>
+                {
+                  <p>
+                    Welcome,
+                    {username}
+                  </p>
+                }
               </li>
               <li className="Btn">
                 <div className="dropdown">

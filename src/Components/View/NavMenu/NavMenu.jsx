@@ -10,7 +10,9 @@ const NavMenu = () => {
           <nav>
             <ul className="nav-menu">
               <li>
-                <a href="/">Fast Food Fast</a>
+                <a className="logo" href="/">
+                  Fast Food Fast
+                </a>
               </li>
               <li className="Btn">
                 <Link to="/login">

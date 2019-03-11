@@ -30,12 +30,11 @@ export const postOrderSuccess = response => {
 };
 
 export const postOrderFailure = error => {
-  console.log(error);
   return {
     type: POST_ORDER_FAILURE,
     payload: {
       isLoading: false,
-      orderError: error.response.data.message
+      orderError: error.message
     }
   };
 };
@@ -45,7 +44,7 @@ export const clearFlashMessage = () => ({
   payload: { message: "", orderError: "" }
 });
 
-export const postOrder = orderData => async dispatch => {
+export const postOrder = (orderData, history) => async dispatch => {
   dispatch(postOrderLoading());
   try {
     const response = await makeRequest("/orders", {
@@ -53,6 +52,7 @@ export const postOrder = orderData => async dispatch => {
       body: orderData
     });
     dispatch(postOrderSuccess(response));
+    setTimeout(history.push("/history"), 2000);
   } catch (error) {
     dispatch(postOrderFailure(error));
   }
@@ -79,7 +79,6 @@ export const userOrderHistorySuccess = response => {
 };
 
 export const userOrderHistoryFailure = error => {
-  console.log(error);
   return {
     type: USER_ORDER_HISTORY_FAILURE,
     payload: {
@@ -90,11 +89,9 @@ export const userOrderHistoryFailure = error => {
 };
 
 export const fetchUserOrderHistory = userId => async dispatch => {
-  // dispatch(postOrderLoading());
   try {
     const response = await makeRequest(`/users/${userId}/orders`);
     dispatch(userOrderHistorySuccess(response));
-    console.log(response);
   } catch (error) {
     dispatch(userOrderHistoryFailure(error));
   }

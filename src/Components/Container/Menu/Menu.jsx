@@ -68,7 +68,7 @@ class Menu extends Component {
               <Grid stackable doubling columns={4}>
                 <Grid.Row stretched>
                   {data.slice(0, 4).map(menu => (
-                    <Grid.Column>
+                    <Grid.Column className="grid-col">
                       <MenuCard
                         key={menu.menu_id}
                         menu_id={menu.menu_id}
