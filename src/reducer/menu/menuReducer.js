@@ -1,13 +1,13 @@
-const initialAuthState = {
+import * as menuAction from "../../action/menu/menuAction";
+
+const initialState = {
   isLoading: true,
-  menuError: '',
+  menuError: "",
   data: [],
-  message: ''
+  message: ""
 };
 
-import * as menuAction from '../../action/menu/menuAction';
-
-export default (state = initialAuthState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case menuAction.FETCH_MENU_SUCCESS:
       return {

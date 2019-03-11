@@ -1,8 +1,8 @@
-import makeRequest from '../../utils/setupAxios';
+import makeRequest from "../../utils/setupAxios";
 
-export const FETCH_MENU_LOADING = 'FETCH_MENU_LOADING';
-export const FETCH_MENU_SUCCESS = 'FETCH_MENU_SUCCESS';
-export const FETCH_MENU_FAILURE = 'FETCH_MENU_FAILURE';
+export const FETCH_MENU_LOADING = "FETCH_MENU_LOADING";
+export const FETCH_MENU_SUCCESS = "FETCH_MENU_SUCCESS";
+export const FETCH_MENU_FAILURE = "FETCH_MENU_FAILURE";
 
 // export const fetchMenuLoading = () => {
 //   return {
@@ -25,11 +25,12 @@ export const fetchMenuSuccess = response => {
 };
 
 export const fetchMenuFailure = error => {
+  console.log(error);
   return {
     type: FETCH_MENU_FAILURE,
     payload: {
       isLoading: false,
-      menuError: error.response.data.message
+      menuError: error.message
     }
   };
 };
@@ -37,7 +38,7 @@ export const fetchMenuFailure = error => {
 export const fetchMenu = () => async dispatch => {
   // dispatch(fetchMenuLoading());
   try {
-    const response = await makeRequest('/menu');
+    const response = await makeRequest("/menu");
     dispatch(fetchMenuSuccess(response));
   } catch (error) {
     dispatch(fetchMenuFailure(error));

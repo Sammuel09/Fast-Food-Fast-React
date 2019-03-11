@@ -71,6 +71,7 @@ class Menu extends Component {
                     <Grid.Column>
                       <MenuCard
                         key={menu.menu_id}
+                        menu_id={menu.menu_id}
                         name={menu.name}
                         price={menu.price}
                         imageurl={menu.imageurl}
